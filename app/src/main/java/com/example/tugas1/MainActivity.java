@@ -3,8 +3,13 @@ package com.example.tugas1;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.widget.ImageView;
+
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,6 +23,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        ImageView logo = findViewById(R.id.logo);
+        Glide.with(this)
+                .load("https://cdn.antaranews.com/cache/800x533/2021/06/10/IMG-20210610-WA0000_2.jpg")
+                .error(R.drawable.ic_launcher_background)
+                .centerCrop()
+                .into(logo);
 
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
